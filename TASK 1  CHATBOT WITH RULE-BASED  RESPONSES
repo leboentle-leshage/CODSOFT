@@ -1,0 +1,35 @@
+def simple_chatbot(user_input):
+    # Convert user input to lowercase for case-insensitivity
+    user_input = user_input.lower()
+
+    # Define predefined rules and responses
+    greetings = ['hello', 'hi', 'hey', 'greetings']
+    farewells = ['bye', 'goodbye', 'see you', 'farewell']
+    inquiries = ['how are you', 'what\'s up', 'how do you do']
+    unknown_responses = ['I don\'t understand.', 'Can you please rephrase that?', 'I\'m not sure how to respond.']
+
+    # Check user input against predefined rules
+    if any(word in user_input for word in greetings):
+        return 'Hello! How can I help you today?'
+
+    elif any(word in user_input for word in farewells):
+        return 'Goodbye! Have a great day.'
+
+    elif any(word in user_input for word in inquiries):
+        return 'I\'m just a simple chatbot. What can I do for you?'
+
+    else:
+        return unknown_responses[0]
+
+# Simple loop to interact with the chatbot
+while True:
+    user_input = input("You: ")
+    
+    # Exit the loop if the user types 'exit'
+    if user_input.lower() == 'exit':
+        print('Chatbot: Goodbye!')
+        break
+    
+    # Get the chatbot's response based on user input
+    response = simple_chatbot(user_input)
+    print('Chatbot:', response)
